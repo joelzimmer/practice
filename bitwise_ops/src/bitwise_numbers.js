@@ -37,8 +37,27 @@ const countTrueValuesInBinaryRepresentation = (value) => {
   return count;
 };
 
+const operators = (operator, ...values) => {
+  let comparison;
+  values.forEach((value, i) => {
+    if (i === 0) {
+      comparison = value;
+    } else {
+      switch (operator) {
+        case 'xor':
+          comparison ^= value;
+          break;
+        default:
+      }
+    }
+  });
+
+  return comparison;
+};
+
 module.exports = {
   asString,
   as32BitString,
   countTrueValuesInBinaryRepresentation,
+  operators,
 };

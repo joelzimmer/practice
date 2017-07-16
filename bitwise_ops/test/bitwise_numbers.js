@@ -23,4 +23,69 @@ describe('bitwise numbers', () => {
       expect(count).to.equal(3);
     });
   });
+
+  context('operators', () => {
+    let operator;
+
+    context('xor', () => {
+      beforeEach(() => {
+        operator = 'xor';
+      });
+
+      it('(nice) returns 0 when comparing the value to itself', () => {
+        for (let i = 0; i < 10; i++) { // eslint-disable-line no-plusplus
+          const result = bitwise.operators(operator, i, i);
+          expect(result).to.equal(0);
+        }
+      });
+
+      it('(really nice) returns the other value when comparing the value to itself and another value', () => {
+        for (let i = 0; i < 10; i++) { // eslint-disable-line no-plusplus
+          const result = bitwise.operators(operator, i, i + 1, i);
+          expect(result).to.equal(i + 1);
+        }
+      });
+
+      it('will do an xor at the bit level', () => {
+        // xor returns 1 when values are the same
+        let result = bitwise.operators(operator, 4, 2);
+        // 4 = 100
+        // 2 = 010
+        // ^ = 110 => 6
+        expect(result).to.equal(6);
+
+        result = bitwise.operators(operator, 1, 2);
+        // 1 = 01
+        // 2 = 10
+        // ^ = 11 => 3
+        expect(result).to.equal(3);
+      });
+    });
+
+    context('and', () => {
+      beforeEach(() => {
+        operator = 'and';
+      });
+
+      it('returns the value when comparing the value to itself', () => {
+        for (let i = 0; i < 10; i++) { // eslint-disable-line no-plusplus
+          const result = bitwise.operators(operator, i, i);
+          expect(result).to.equal(i);
+        }
+      });
+    });
+
+    context('or', () => {
+      beforeEach(() => {
+        operator = 'or';
+      });
+
+      it('returns the value when comparing the value to itself', () => {
+        for (let i = 0; i < 10; i++) { // eslint-disable-line no-plusplus
+          const result = bitwise.operators(operator, i, i);
+          expect(result).to.equal(i);
+        }
+      });
+    });
+  });
 });
