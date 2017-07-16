@@ -7,6 +7,12 @@
     "test": "mocha ./**/test --reporter dot",
     "test:watch": "nodemon -e js,json --exec bash -c 'npm run test; date' ."
   },
+  "eslintConfig": {
+    "env": {
+      "mocha": true,
+      "node": true
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/joelzimmer/practice.git"
@@ -17,12 +23,15 @@
     "url": "https://github.com/joelzimmer/practice/issues"
   },
   "homepage": "https://github.com/joelzimmer/practice#readme",
+  "dependencies": {
+    "debug": "^2.6.8"
+  },
   "devDependencies": {
     "chai": "^4.1.0",
-    "debug": "^2.6.8",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-mocha": "^4.11.0",
     "mocha": "^3.4.2",
     "nodemon": "^1.11.0"
   }

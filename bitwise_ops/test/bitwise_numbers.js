@@ -1,4 +1,4 @@
-require('../../helpers/test_helper');
+require('./helpers/test_helper');
 
 const bitwise = require('../src/bitwise_numbers');
 
